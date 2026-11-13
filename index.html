@@ -3,41 +3,49 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Ali Alaoui — Hybrid Software & Infrastructure Engineer. Founder of AK Streamers. Backend, systems, infrastructure, security." />
+  <meta name="description" content="Ali Alaoui — Hybrid Software & Infrastructure Engineer. Founder & CEO of AK Streamers. Backend, systems, infrastructure, security." />
+  <meta name="theme-color" content="#07080c" />
   <title>Ali Alaoui · Hybrid Software & Infrastructure Engineer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Orbitron:wght@500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Orbitron:wght@500;600;700;800&display=swap" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <div id="cursor" class="cursor" aria-hidden="true"></div>
+  <div id="cursor-glow" class="cursor-glow" aria-hidden="true"></div>
+
   <!-- LOADER -->
   <div id="loader" class="loader">
     <div class="loader-inner">
-      <div class="loader-ring-outer"></div>
-      <div class="loader-ring-inner"></div>
-      <div class="loader-core">
-        <svg viewBox="0 0 48 48" class="loader-mark" aria-hidden="true">
-          <defs>
-            <linearGradient id="lg" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#c9a227"/>
-              <stop offset="50%" stop-color="#f0d78c"/>
-              <stop offset="100%" stop-color="#8a6d1b"/>
-            </linearGradient>
-          </defs>
-          <path fill="url(#lg)" d="M24 4L8 12v12c0 9.4 6.6 18.2 16 20.6C33.4 42.2 40 33.4 40 24V12L24 4zm0 6.2l10 5v8.8c0 6.4-4.4 12.4-10 14.2-5.6-1.8-10-7.8-10-14.2v-8.8l10-5z"/>
-        </svg>
+      <div class="loader-rings">
+        <div class="loader-ring-outer"></div>
+        <div class="loader-ring-inner"></div>
+        <div class="loader-core">
+          <svg viewBox="0 0 48 48" class="loader-mark" aria-hidden="true">
+            <defs>
+              <linearGradient id="lg" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#c9a227"/>
+                <stop offset="50%" stop-color="#f0d78c"/>
+                <stop offset="100%" stop-color="#8a6d1b"/>
+              </linearGradient>
+            </defs>
+            <path fill="url(#lg)" d="M24 4L8 12v12c0 9.4 6.6 18.2 16 20.6C33.4 42.2 40 33.4 40 24V12L24 4zm0 6.2l10 5v8.8c0 6.4-4.4 12.4-10 14.2-5.6-1.8-10-7.8-10-14.2v-8.8l10-5z"/>
+          </svg>
+        </div>
       </div>
       <div class="loader-text">
         <span class="loader-brand">ALI ALAOUI</span>
         <div class="loader-bar"><div class="loader-progress" id="loaderProgress"></div></div>
-        <span class="loader-status" id="loaderStatus">Initializing systems…</span>
+        <span class="loader-status" id="loaderStatus">Booting interface</span>
       </div>
     </div>
   </div>
 
-  <!-- AMBIENT -->
   <div class="ambient">
     <div class="orb orb-1"></div>
     <div class="orb orb-2"></div>
@@ -45,10 +53,9 @@
     <canvas id="particles"></canvas>
   </div>
 
-  <!-- NAV -->
   <header class="nav" id="nav">
     <div class="nav-inner">
-      <a href="#top" class="nav-brand">
+      <a href="#top" class="nav-brand magnetic">
         <span class="nav-mark">AA</span>
         <span class="nav-name">Ali Alaoui</span>
       </a>
@@ -59,7 +66,7 @@
         <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
       </nav>
-      <a href="mailto:dexter.ali001@gmail.com" class="nav-cta">Hire Me</a>
+      <a href="mailto:dexter.ali001@gmail.com" class="nav-cta magnetic">Hire Me</a>
     </div>
   </header>
 
@@ -67,132 +74,149 @@
     <!-- HERO -->
     <section class="hero">
       <div class="hero-bg-grid"></div>
+      <canvas id="heroCanvas" class="hero-canvas" aria-hidden="true"></canvas>
       <div class="hero-content">
-        <div class="hero-left reveal">
-          <div class="hero-badge">
-            <span class="pulse"></span>
-            Available for remote & freelance
-          </div>
+        <div class="hero-left">
+          <div class="hero-badge"><span class="pulse"></span> Open to remote · Morocco</div>
           <h1 class="hero-title">
             <span class="line">Hybrid Software</span>
             <span class="line accent">&amp; Infrastructure</span>
             <span class="line">Engineer</span>
           </h1>
           <p class="hero-lead">
-            I design, build, deploy, secure, and operate production systems end-to-end.
-            Founder &amp; CEO of <a href="https://akstreamers.net" target="_blank" rel="noreferrer">AK Streamers</a> —
-            a live platform serving hundreds of thousands of creators.
+            I own production systems end-to-end — application code, real-time services, browser extensions,
+            multi-arch infrastructure, and security posture. Founder &amp; CEO of
+            <a href="https://akstreamers.net" target="_blank" rel="noreferrer">AK Streamers</a> since 2022,
+            operating at scale for creators on Kick.
           </p>
           <div class="hero-actions">
-            <a href="#projects" class="btn btn-gold">View Work</a>
-            <a href="#contact" class="btn btn-ghost">Contact</a>
+            <a href="#projects" class="btn btn-gold magnetic">View flagship work</a>
+            <a href="#skills" class="btn btn-ghost magnetic">Explore capabilities</a>
+            <a href="https://github.com/alidexter001" target="_blank" rel="noreferrer" class="btn btn-ghost magnetic site-link" data-domain="github.com">
+              <img class="site-logo" alt="" /> GitHub
+            </a>
           </div>
           <div class="hero-metrics">
             <div class="metric">
               <span class="metric-value" data-count="6">0</span><span class="metric-suffix">+</span>
-              <span class="metric-label">Years Experience</span>
+              <span class="metric-label">Years in production</span>
             </div>
             <div class="metric">
               <span class="metric-value" data-count="300">0</span><span class="metric-suffix">K+</span>
-              <span class="metric-label">Unique Users</span>
+              <span class="metric-label">Unique users · past year</span>
             </div>
             <div class="metric">
               <span class="metric-value" data-count="90">0</span><span class="metric-suffix">.1M</span>
-              <span class="metric-label">Avg Monthly Requests</span>
+              <span class="metric-label">Avg monthly requests</span>
             </div>
           </div>
         </div>
 
-        <div class="hero-right reveal delay-1">
-          <div class="profile-card">
+        <div class="hero-right">
+          <div class="profile-card" id="profileCard">
             <div class="profile-glow"></div>
             <div class="profile-frame">
-              <img
-                id="profileImg"
-                src="https://avatars.githubusercontent.com/u/53831484?v=4"
-                alt="Ali Alaoui profile"
-                class="profile-img"
-                onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect fill=%22%23111%22 width=%22200%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 fill=%22%23c9a227%22 font-size=%2248%22 text-anchor=%22middle%22 dy=%22.35em%22%3EAA%3C/text%3E%3C/svg%3E'"
-              />
+              <img id="profileImg" src="https://avatars.githubusercontent.com/u/53831484?v=4" alt="Ali Alaoui" class="profile-img"
+                onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect fill=%22%23111%22 width=%22200%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 fill=%22%23c9a227%22 font-size=%2248%22 text-anchor=%22middle%22 dy=%22.35em%22%3EAA%3C/text%3E%3C/svg%3E'" />
               <div class="profile-ring"></div>
+              <div class="profile-ring r2"></div>
             </div>
             <div class="profile-info">
               <h2>Ali Alaoui</h2>
-              <p>Smart Key · Morocco</p>
+              <p>Smart Key · Self-taught · Remote-first</p>
               <div class="profile-tags">
-                <span>Backend</span>
-                <span>Systems</span>
-                <span>Infra</span>
-                <span>Security</span>
+                <span>Backend</span><span>Systems</span><span>Infra</span><span>Security</span>
               </div>
             </div>
             <div class="profile-links">
-              <a href="https://github.com/alidexter001" target="_blank" rel="noreferrer" title="GitHub" class="site-link" data-domain="github.com">
-                <img class="site-logo" alt="GitHub" />
-                <span>GitHub</span>
+              <a href="https://github.com/alidexter001" target="_blank" rel="noreferrer" class="site-link" data-domain="github.com">
+                <img class="site-logo" alt="" /><span>GitHub</span>
               </a>
-              <a href="https://akstreamers.net" target="_blank" rel="noreferrer" title="AK Streamers" class="site-link" data-domain="akstreamers.net">
-                <img class="site-logo" alt="AK Streamers" />
-                <span>AK Streamers</span>
+              <a href="https://akstreamers.net" target="_blank" rel="noreferrer" class="site-link" data-domain="akstreamers.net">
+                <img class="site-logo" alt="" /><span>AK Streamers</span>
               </a>
+              <a href="mailto:dexter.ali001@gmail.com" class="site-link"><span>Email</span></a>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Floating decorative SVGs -->
-      <svg class="deco deco-1" viewBox="0 0 120 120" aria-hidden="true">
-        <circle cx="60" cy="60" r="50" fill="none" stroke="url(#goldStroke)" stroke-width="0.5" opacity="0.4"/>
-        <circle cx="60" cy="60" r="35" fill="none" stroke="url(#goldStroke)" stroke-width="0.4" opacity="0.3"/>
-        <path d="M60 20 L70 50 L100 50 L76 68 L84 98 L60 80 L36 98 L44 68 L20 50 L50 50 Z" fill="none" stroke="url(#goldStroke)" stroke-width="0.6" opacity="0.25"/>
-      </svg>
-      <svg class="deco deco-2" viewBox="0 0 80 80" aria-hidden="true">
-        <rect x="10" y="10" width="60" height="60" rx="8" fill="none" stroke="url(#goldStroke)" stroke-width="0.5" opacity="0.2" transform="rotate(15 40 40)"/>
-      </svg>
+      <div class="metrics-strip" id="overview">
+        <div class="metric-cell">
+          <span class="m-label">Experience</span>
+          <span class="m-value"><span data-count="6">0</span>+ yrs</span>
+          <span class="m-sub">Hands-on engineering</span>
+        </div>
+        <div class="metric-cell">
+          <span class="m-label">Independent</span>
+          <span class="m-value">2020→</span>
+          <span class="m-sub">Self-employed systems work</span>
+        </div>
+        <div class="metric-cell">
+          <span class="m-label">AK Streamers</span>
+          <span class="m-value">2022→</span>
+          <span class="m-sub">Founder &amp; CEO</span>
+        </div>
+        <div class="metric-cell">
+          <span class="m-label">Customers</span>
+          <span class="m-value"><span data-count="90">0</span>K+</span>
+          <span class="m-sub">Average active base</span>
+        </div>
+        <div class="metric-cell">
+          <span class="m-label">Reliability</span>
+          <span class="m-value">99.9%</span>
+          <span class="m-sub">Uptime focus</span>
+        </div>
+      </div>
     </section>
 
     <!-- ABOUT -->
     <section id="about" class="section">
       <div class="section-inner">
-        <div class="section-header reveal">
+        <div class="section-header">
           <span class="section-eyebrow">01 — About</span>
-          <h2 class="section-title">Proof lives in production.</h2>
+          <h2 class="section-title">Precision over theater.</h2>
         </div>
         <div class="about-grid">
-          <div class="about-text reveal">
+          <div class="about-text">
             <p>
-              Hybrid Software and Infrastructure Engineer with <strong>6+ years</strong> of hands-on experience
-              building, deploying, securing, and operating software and production environments.
-              I work across backend and systems development, real-time APIs, browser extensions,
-              Linux and Windows administration, network configuration, and infrastructure troubleshooting.
+              Hybrid Software and Infrastructure Engineer with <strong>6+ years</strong> of practical experience
+              shipping and operating systems in production. The work covers backend services, systems programming,
+              real-time APIs, browser extensions, Linux and Windows administration, networking, and security hardening.
             </p>
             <p>
-              End-to-end ownership is the standard: application code, the systems it runs on,
-              production diagnostics, reliability, and security hardening.
-              Self-taught through continuous projects, real deployments, and operational responsibility.
+              The operating model is end-to-end: write the code, understand the host and network it runs on,
+              read the signals when something fails, and improve reliability and security without waiting for a separate team.
+              Self-taught through independent study, continuous projects, and real operational responsibility —
+              no formal degree claimed.
             </p>
+            <div class="about-facts">
+              <div><span>Location</span><strong>Morocco · International remote</strong></div>
+              <div><span>Availability</span><strong>Remote roles &amp; freelance contracts</strong></div>
+              <div><span>Flagship</span><strong>AK Streamers · Founder &amp; CEO (2022–)</strong></div>
+            </div>
           </div>
-          <div class="about-cards reveal delay-1">
+          <div class="about-cards">
             <div class="glass-card">
               <div class="card-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
               </div>
-              <h3>Systems Thinking</h3>
-              <p>Architecture across ARM64 & x86-64, containers, proxies, VPNs, and multi-service topologies.</p>
+              <h3>Systems thinking</h3>
+              <p>Cross-architecture deployments (ARM64 / x86-64), containers, reverse proxies, secure inter-server VPNs, and multi-service topologies.</p>
             </div>
             <div class="glass-card">
               <div class="card-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
               </div>
-              <h3>Security First</h3>
-              <p>Hardening, rate limiting, traffic analysis, DDoS mitigation, and practical auditing in production.</p>
+              <h3>Security in the path</h3>
+              <p>Server hardening, firewall posture, rate limiting, traffic analysis, DDoS awareness, and practical auditing where the product actually runs.</p>
             </div>
             <div class="glass-card">
               <div class="card-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
               </div>
-              <h3>Real-time Focus</h3>
-              <p>WebSockets, SSE, extension background workers, heartbeat systems, and live session coordination.</p>
+              <h3>Real-time surfaces</h3>
+              <p>WebSockets, SSE, Manifest V3 background workers, heartbeats, device inventory, and coordinated live sessions under safety limits.</p>
             </div>
           </div>
         </div>
@@ -202,50 +226,50 @@
     <!-- SKILLS -->
     <section id="skills" class="section section-alt">
       <div class="section-inner">
-        <div class="section-header reveal">
-          <span class="section-eyebrow">02 — Skills</span>
-          <h2 class="section-title">Technical depth.</h2>
+        <div class="section-header">
+          <span class="section-eyebrow">02 — Capabilities</span>
+          <h2 class="section-title">Depth mapped to production work.</h2>
+          <p class="section-lead">Not a generic checklist — a model of where ownership actually sits across systems I’ve built and run.</p>
         </div>
 
         <div class="skills-layout">
-          <div class="skills-chart-wrap reveal">
-            <div class="chart-card">
-              <h3>Core Competencies</h3>
-              <canvas id="radarChart" height="280"></canvas>
-            </div>
+          <div class="chart-card">
+            <h3>Core competency radar</h3>
+            <canvas id="radarChart" height="280"></canvas>
           </div>
-          <div class="skills-bars reveal delay-1">
-            <div class="chart-card">
-              <h3>Proficiency Overview</h3>
-              <div class="bar-group" id="skillBars"></div>
-            </div>
+          <div class="chart-card">
+            <h3>Proficiency bands</h3>
+            <div class="bar-group" id="skillBars"></div>
           </div>
         </div>
 
-        <div class="skills-tags reveal">
+        <div class="skills-second">
+          <div class="chart-card">
+            <h3>Stack distribution</h3>
+            <div class="chart-h"><canvas id="stackChart"></canvas></div>
+          </div>
+          <div class="chart-card constellation-card">
+            <h3>Capability constellation</h3>
+            <canvas id="constellation" width="400" height="280"></canvas>
+          </div>
+        </div>
+
+        <div class="skills-tags">
           <div class="tag-group">
             <span class="tag-label">Languages</span>
-            <div class="tags">
-              <span>C</span><span>C++</span><span>C#</span><span>Python</span><span>JavaScript</span><span>TypeScript</span><span>Bash</span><span>PowerShell</span>
-            </div>
+            <div class="tags"><span>C</span><span>C++</span><span>C#</span><span>Python</span><span>JavaScript</span><span>TypeScript</span><span>Bash</span><span>Zsh</span><span>PowerShell</span></div>
           </div>
           <div class="tag-group">
-            <span class="tag-label">Backend & Real-time</span>
-            <div class="tags">
-              <span>Node.js</span><span>Express</span><span>Fastify</span><span>.NET</span><span>FastAPI</span><span>Flask</span><span>WebSockets</span><span>SSE</span>
-            </div>
+            <span class="tag-label">Backend &amp; real-time</span>
+            <div class="tags"><span>Node.js</span><span>Express</span><span>Fastify</span><span>.NET Web APIs</span><span>FastAPI</span><span>Flask</span><span>REST</span><span>WebSockets</span><span>SSE</span></div>
           </div>
           <div class="tag-group">
-            <span class="tag-label">Frontend & Extensions</span>
-            <div class="tags">
-              <span>React</span><span>Next.js</span><span>Tailwind</span><span>Chrome MV3</span><span>Firefox APIs</span>
-            </div>
+            <span class="tag-label">Client &amp; extensions</span>
+            <div class="tags"><span>React</span><span>Next.js</span><span>Tailwind</span><span>Chrome MV3</span><span>Firefox APIs</span><span>Background workers</span></div>
           </div>
           <div class="tag-group">
-            <span class="tag-label">Infrastructure</span>
-            <div class="tags">
-              <span>Linux</span><span>Windows Server</span><span>Docker</span><span>Nginx</span><span>WireGuard</span><span>Cloudflare</span><span>PostgreSQL</span><span>Redis</span>
-            </div>
+            <span class="tag-label">Infrastructure &amp; data</span>
+            <div class="tags"><span>Linux</span><span>Windows Server</span><span>Docker</span><span>Nginx</span><span>WireGuard</span><span>Cloudflare</span><span>PostgreSQL</span><span>Redis</span><span>MongoDB</span></div>
           </div>
         </div>
       </div>
@@ -254,127 +278,135 @@
     <!-- EXPERIENCE -->
     <section id="experience" class="section">
       <div class="section-inner">
-        <div class="section-header reveal">
+        <div class="section-header">
           <span class="section-eyebrow">03 — Experience</span>
-          <h2 class="section-title">Independent ownership.</h2>
+          <h2 class="section-title">Independent ownership since 2020.</h2>
         </div>
-        <div class="timeline reveal">
+        <div class="timeline">
           <div class="timeline-item">
             <div class="timeline-marker"></div>
             <div class="timeline-content glass-card">
               <div class="timeline-meta">
-                <span class="timeline-role">Independent Systems & Full-Stack Engineer</span>
-                <span class="timeline-date">2020 — Present</span>
+                <span class="timeline-role">Independent Systems &amp; Full-Stack Engineer</span>
+                <span class="timeline-date">2020 — Present · Self-employed</span>
               </div>
               <p>
-                Custom software, backend services, infrastructure engineering, security improvements, and automation
-                for independent and client projects. Design, deploy, and operate Linux and Windows environments
-                across ARM64 and x86-64. Build APIs, desktop utilities, and automation with C++, C#, Python, Node.js,
-                Bash, and PowerShell. Configure containers, reverse proxies, firewalls, and inter-server networking.
-                Diagnose production issues across application, database, network, and infrastructure layers.
+                Deliver custom software, backend services, infrastructure engineering, security improvements, and automation
+                for independent and client projects. Design, deploy, and operate Linux and Windows environments across ARM64 and x86-64.
+                Build backend applications, APIs, desktop utilities, and system automation using C++, C#, Python, Node.js, Bash, and PowerShell.
               </p>
+              <ul class="timeline-points">
+                <li>Containerized services, reverse proxies, firewalls, VPN connectivity, inter-server networking</li>
+                <li>Production investigation via logs, network diagnostics, database analysis, and system-level profiling</li>
+                <li>Performance work across application, database, network, and infrastructure layers</li>
+                <li>Client delivery through direct referrals and technical reputation</li>
+              </ul>
             </div>
           </div>
           <div class="timeline-item">
             <div class="timeline-marker accent"></div>
-            <div class="timeline-content glass-card">
+            <div class="timeline-content glass-card featured">
               <div class="timeline-meta">
-                <span class="timeline-role">Founder & CEO — AK Streamers</span>
+                <span class="timeline-role">Founder &amp; CEO — AK Streamers</span>
                 <span class="timeline-date">2022 — Present</span>
               </div>
               <p>
-                Founded and continue to lead the platform and browser-extension ecosystem for Kick creators.
-                Full ownership of architecture, backend, real-time services, Manifest V3 extension, production infrastructure,
-                security controls, and growth.
+                Founded the live platform and browser-extension ecosystem for digital creators on Kick.
+                Continue as CEO and lead engineer with full ownership of architecture, real-time services,
+                Manifest V3 extension, production infrastructure, security controls, and growth metrics.
               </p>
+              <ul class="timeline-points">
+                <li>Backend, frontend, APIs, WebSocket services, companion Chrome MV3 extension</li>
+                <li>Background workers, cross-origin communication, dynamic authentication, synchronized state</li>
+                <li>Rate-limiting, firewall protections, traffic analysis against abnormal activity</li>
+                <li>PostgreSQL, reverse proxies, multi-service production operations · ~99.9% uptime focus</li>
+              </ul>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- PROJECTS -->
+    <!-- PROJECTS / AK -->
     <section id="projects" class="section section-alt">
       <div class="section-inner">
-        <div class="section-header reveal">
-          <span class="section-eyebrow">04 — Projects</span>
-          <h2 class="section-title">Systems that ship and stay up.</h2>
+        <div class="section-header">
+          <span class="section-eyebrow">04 — Systems</span>
+          <h2 class="section-title">What runs in production.</h2>
         </div>
 
-        <!-- FLAGSHIP -->
-        <article class="flagship reveal">
+        <article class="flagship" id="akstreamers">
           <div class="flagship-glow"></div>
           <div class="flagship-header">
             <div class="flagship-brand">
               <img class="flagship-logo site-logo" data-domain="akstreamers.net" alt="AK Streamers" />
               <div>
-                <span class="flagship-label">Flagship · Founder & CEO</span>
+                <span class="flagship-label">Flagship · Founder &amp; CEO · Est. 2022</span>
                 <h3>AK Streamers</h3>
               </div>
             </div>
-            <a href="https://akstreamers.net" target="_blank" rel="noreferrer" class="btn btn-gold btn-sm">Visit Platform →</a>
+            <a href="https://akstreamers.net" target="_blank" rel="noreferrer" class="btn btn-gold btn-sm magnetic">Open platform →</a>
           </div>
           <p class="flagship-desc">
-            Live platform and controlled Chrome Manifest V3 extension that coordinates verified Kick support:
-            Discord verification, managed Kick tabs, chat & emotes, streamer queues, and safety limits.
-            Built and operated end-to-end since 2022.
+            Live platform and controlled Chrome Manifest V3 extension that coordinates verified Kick support.
+            Members authenticate via Discord, link Kick identity, select streamer queues, and run guided support actions
+            with rate limits, quiet hours, and emergency stops. Sensitive controls stay behind verification;
+            the public site introduces the system without exposing internals.
           </p>
           <div class="flagship-stats">
             <div class="fstat">
               <span class="fstat-value" data-count="300">0</span><span class="fstat-suffix">K+</span>
-              <span class="fstat-label">Unique users (past year)</span>
+              <span class="fstat-label">Unique users · past year</span>
             </div>
             <div class="fstat">
               <span class="fstat-value" data-count="90">0</span><span class="fstat-suffix">.1M</span>
-              <span class="fstat-label">Avg monthly requests</span>
+              <span class="fstat-label">Avg monthly Cloudflare requests</span>
             </div>
             <div class="fstat">
               <span class="fstat-value" data-count="90">0</span><span class="fstat-suffix">K+</span>
-              <span class="fstat-label">Avg customers</span>
+              <span class="fstat-label">Average customers</span>
             </div>
             <div class="fstat">
               <span class="fstat-value">99.9</span><span class="fstat-suffix">%</span>
               <span class="fstat-label">Uptime focus</span>
             </div>
           </div>
-          <div class="flagship-chart-wrap">
-            <canvas id="trafficChart" height="120"></canvas>
+          <div class="flagship-charts">
+            <div class="flag-chart">
+              <span class="chart-label">Illustrative monthly request volume (M)</span>
+              <div class="chart-h"><canvas id="trafficChart"></canvas></div>
+            </div>
+            <div class="flag-chart">
+              <span class="chart-label">Platform capability mix</span>
+              <div class="chart-h"><canvas id="mixChart"></canvas></div>
+            </div>
           </div>
-          <ul class="flagship-features">
-            <li>Architected backend, frontend, WebSocket services & companion extension</li>
-            <li>PostgreSQL, reverse proxies, rate-limiting, firewall protections</li>
-            <li>Cloudflare edge · production traffic analysis · continuous hardening</li>
-          </ul>
+          <div class="flagship-steps">
+            <div class="fstep"><strong>01</strong><span>Discord verification unlocks operational controls</span></div>
+            <div class="fstep"><strong>02</strong><span>Kick identity linked for support activity</span></div>
+            <div class="fstep"><strong>03</strong><span>Queues drive managed tabs and chat tasks</span></div>
+            <div class="fstep"><strong>04</strong><span>Safety ceilings, pauses, and emergency stops</span></div>
+          </div>
         </article>
 
-        <!-- OTHER PROJECTS -->
         <div class="projects-grid">
-          <article class="project-card glass-card reveal">
-            <div class="project-top">
-              <span class="project-kind">Client · Full-Stack</span>
-              <span class="project-year">OptiRaffine</span>
-            </div>
+          <article class="project-card glass-card">
+            <div class="project-top"><span class="project-kind">Client · Full-stack</span><span class="project-year">OptiRaffine</span></div>
             <h3>OptiRaffine.ma</h3>
-            <p>Business website and digital storefront for a Moroccan optometry practice — appointments, catalog, localization, conversion flows, deployment, and application security.</p>
-            <div class="project-tags"><span>Full-Stack</span><span>Localization</span><span>Security</span></div>
+            <p>Business website and digital storefront for a Moroccan optometry practice. Appointment scheduling, product catalog, localized customer experience, conversion workflows, deployment, and application security.</p>
+            <div class="project-tags"><span>Scheduling</span><span>Catalog</span><span>Localization</span><span>Security</span></div>
           </article>
-          <article class="project-card glass-card reveal delay-1">
-            <div class="project-top">
-              <span class="project-kind">Creator · Marketplace</span>
-              <span class="project-year">RbxStore</span>
-            </div>
+          <article class="project-card glass-card">
+            <div class="project-top"><span class="project-kind">Creator · Marketplace</span><span class="project-year">RbxStore</span></div>
             <h3>RbxStore.net</h3>
-            <p>Digital goods marketplace with automated transaction workflows, inventory tracking, session management, and user operations.</p>
-            <div class="project-tags"><span>Marketplace</span><span>Automation</span><span>Backend</span></div>
+            <p>Digital goods marketplace with automated transaction workflows, inventory tracking, session management, and user operations backend.</p>
+            <div class="project-tags"><span>Marketplace</span><span>Automation</span><span>Sessions</span></div>
           </article>
-          <article class="project-card glass-card reveal delay-2">
-            <div class="project-top">
-              <span class="project-kind">Systems · Retired</span>
-              <span class="project-year">MovieBypass</span>
-            </div>
+          <article class="project-card glass-card">
+            <div class="project-top"><span class="project-kind">Systems · Retired</span><span class="project-year">MovieBypass</span></div>
             <h3>MovieBypass.net</h3>
-            <p>Media proxying and dynamic stream-processing infrastructure for high-volume video traffic, with bandwidth optimization under concurrent workloads.</p>
-            <div class="project-tags"><span>Streaming</span><span>Performance</span><span>Infra</span></div>
+            <p>Media proxying and dynamic stream-processing infrastructure for high-volume video traffic. Bandwidth optimization and performance investigation under concurrent media workloads.</p>
+            <div class="project-tags"><span>Streaming</span><span>Proxying</span><span>Performance</span></div>
           </article>
         </div>
       </div>
@@ -383,17 +415,17 @@
     <!-- CONTACT -->
     <section id="contact" class="section">
       <div class="section-inner">
-        <div class="contact-card reveal">
+        <div class="contact-card">
           <div class="contact-glow"></div>
           <span class="section-eyebrow">05 — Contact</span>
-          <h2 class="section-title">Let’s build something real.</h2>
-          <p class="contact-lead">Open to international remote roles and freelance contracts. Based in Morocco.</p>
+          <h2 class="section-title">Build with someone who ships and stays on-call.</h2>
+          <p class="contact-lead">Open to international remote roles and selective freelance contracts. Based in Morocco.</p>
           <div class="contact-actions">
-            <a href="mailto:dexter.ali001@gmail.com" class="btn btn-gold">dexter.ali001@gmail.com</a>
-            <a href="https://github.com/alidexter001" target="_blank" rel="noreferrer" class="btn btn-ghost site-link" data-domain="github.com">
+            <a href="mailto:dexter.ali001@gmail.com" class="btn btn-gold magnetic">dexter.ali001@gmail.com</a>
+            <a href="https://github.com/alidexter001" target="_blank" rel="noreferrer" class="btn btn-ghost magnetic site-link" data-domain="github.com">
               <img class="site-logo" alt="" /> GitHub
             </a>
-            <a href="https://akstreamers.net" target="_blank" rel="noreferrer" class="btn btn-ghost site-link" data-domain="akstreamers.net">
+            <a href="https://akstreamers.net" target="_blank" rel="noreferrer" class="btn btn-ghost magnetic site-link" data-domain="akstreamers.net">
               <img class="site-logo" alt="" /> AK Streamers
             </a>
           </div>
@@ -405,19 +437,9 @@
   <footer class="footer">
     <div class="footer-inner">
       <span>© <span id="year"></span> Ali Alaoui · Smart Key</span>
-      <span class="footer-note">Built with intention · Operated with care</span>
+      <span class="footer-note">Precision in production</span>
     </div>
   </footer>
-
-  <!-- SVG defs for strokes -->
-  <svg width="0" height="0" style="position:absolute">
-    <defs>
-      <linearGradient id="goldStroke" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stop-color="#c9a227"/>
-        <stop offset="100%" stop-color="#f0d78c"/>
-      </linearGradient>
-    </defs>
-  </svg>
 
   <script src="script.js"></script>
 </body>
