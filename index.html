@@ -1,21 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Ali Alaoui — Hybrid Software & Infrastructure Engineer. Founder & CEO of AK Streamers. Backend, systems, infrastructure, security." />
+  <meta name="description" content="Ali Alaoui — Hybrid Software & Infrastructure Engineer building backend systems, real-time platforms, security tooling, and production infrastructure." />
+  <meta name="author" content="Ali Alaoui" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://alidexter001.github.io/smartkey-portfolio/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Ali Alaoui — Software & Infrastructure Engineer" />
+  <meta property="og:description" content="Production-minded engineering across backend systems, real-time services, security, and infrastructure." />
+  <meta property="og:url" content="https://alidexter001.github.io/smartkey-portfolio/" />
+  <meta property="og:image" content="https://avatars.githubusercontent.com/u/53831484?v=4" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Ali Alaoui — Software & Infrastructure Engineer" />
+  <meta name="twitter:description" content="Backend, real-time systems, security, and infrastructure engineering." />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Ali Alaoui",
+    "url": "https://alidexter001.github.io/smartkey-portfolio/",
+    "sameAs": ["https://github.com/alidexter001", "https://akstreamers.net"],
+    "jobTitle": "Hybrid Software & Infrastructure Engineer",
+    "email": "dexter.ali001@gmail.com",
+    "knowsAbout": ["Backend engineering", "Infrastructure engineering", "Network security", "Real-time systems", "Systems programming"]
+  }
+  </script>
   <meta name="theme-color" content="#07080c" />
+  <script>
+    try {
+      if (localStorage.getItem("smartkey-theme") === "light") {
+        document.documentElement.dataset.theme = "light";
+        document.querySelector('meta[name="theme-color"]').setAttribute("content", "#f4f3ef");
+      }
+    } catch (_) {}
+  </script>
   <title>Ali Alaoui · Hybrid Software & Infrastructure Engineer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Orbitron:wght@500;600;700;800&display=swap" rel="stylesheet" />
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <a class="skip-link" href="#top">Skip to content</a>
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
   <div id="cursor" class="cursor" aria-hidden="true"></div>
   <div id="cursor-glow" class="cursor-glow" aria-hidden="true"></div>
 
@@ -59,18 +92,36 @@
         <span class="nav-mark">AA</span>
         <span class="nav-name">Ali Alaoui</span>
       </a>
-      <nav class="nav-links">
+      <nav class="nav-links" aria-label="Primary navigation">
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
         <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
+        <a href="#systems">Systems</a>
         <a href="#contact">Contact</a>
       </nav>
-      <a href="mailto:dexter.ali001@gmail.com" class="nav-cta magnetic">Hire Me</a>
+      <div class="nav-tools">
+        <button class="icon-control mobile-nav-toggle" id="mobileNavToggle" type="button" aria-expanded="false" aria-controls="mobileNavPanel" aria-label="Open navigation">☰</button>
+        <button class="icon-control" id="themeToggle" type="button" aria-label="Switch to light theme" title="Toggle theme">◐</button>
+        <button class="icon-control command-trigger" id="commandTrigger" type="button" aria-label="Open command palette" aria-haspopup="dialog" aria-expanded="false" aria-keyshortcuts="Control+K Meta+K" title="Command palette">⌘K</button>
+        <a href="https://github.com/alidexter001" target="_blank" rel="noreferrer" class="nav-cta magnetic">Connect</a>
+      </div>
     </div>
   </header>
 
-  <main id="top">
+  <div class="mobile-nav-panel" id="mobileNavPanel" aria-hidden="true">
+    <nav aria-label="Mobile navigation">
+      <a href="#about">01 <span>About</span></a>
+      <a href="#skills">02 <span>Capabilities</span></a>
+      <a href="#experience">03 <span>Experience</span></a>
+      <a href="#projects">04 <span>Selected work</span></a>
+      <a href="#systems">05 <span>Architecture lab</span></a>
+      <a href="#contact">06 <span>Contact</span></a>
+    </nav>
+    <div class="mobile-nav-foot"><span class="pulse"></span> Available for remote work · Morocco</div>
+  </div>
+
+  <main id="top" tabindex="-1">
     <!-- HERO -->
     <section class="hero">
       <div class="hero-bg-grid"></div>
@@ -102,12 +153,12 @@
               <span class="metric-label">Years in production</span>
             </div>
             <div class="metric">
-              <span class="metric-value" data-count="300">0</span><span class="metric-suffix">K+</span>
-              <span class="metric-label">Unique users · past year</span>
+              <span class="metric-value" data-count="8.9">0</span><span class="metric-suffix">K</span>
+              <span class="metric-label">Monthly unique visitors</span>
             </div>
             <div class="metric">
-              <span class="metric-value" data-count="90">0</span><span class="metric-suffix">.1M</span>
-              <span class="metric-label">Avg monthly requests</span>
+              <span class="metric-value" data-count="99">0</span><span class="metric-suffix">M+</span>
+              <span class="metric-label">Monthly edge requests</span>
             </div>
           </div>
         </div>
@@ -135,7 +186,6 @@
               <a href="https://akstreamers.net" target="_blank" rel="noreferrer" class="site-link" data-domain="akstreamers.net">
                 <img class="site-logo" alt="" /><span>AK Streamers</span>
               </a>
-              <a href="mailto:dexter.ali001@gmail.com" class="site-link"><span>Email</span></a>
             </div>
           </div>
         </div>
@@ -158,9 +208,9 @@
           <span class="m-sub">Founder &amp; CEO</span>
         </div>
         <div class="metric-cell">
-          <span class="m-label">Customers</span>
-          <span class="m-value"><span data-count="90">0</span>K+</span>
-          <span class="m-sub">Average active base</span>
+          <span class="m-label">Audience</span>
+          <span class="m-value">8.9K</span>
+          <span class="m-sub">Monthly unique visitors</span>
         </div>
         <div class="metric-cell">
           <span class="m-label">Reliability</span>
@@ -193,6 +243,7 @@
             <div class="about-facts">
               <div><span>Location</span><strong>Morocco · International remote</strong></div>
               <div><span>Availability</span><strong>Remote roles &amp; freelance contracts</strong></div>
+              <div><span>Languages</span><strong>Arabic · French · English — Advanced</strong></div>
               <div><span>Flagship</span><strong>AK Streamers · Founder &amp; CEO (2022–)</strong></div>
             </div>
           </div>
@@ -229,48 +280,168 @@
         <div class="section-header">
           <span class="section-eyebrow">02 — Capabilities</span>
           <h2 class="section-title">Depth mapped to production work.</h2>
-          <p class="section-lead">Not a generic checklist — a model of where ownership actually sits across systems I’ve built and run.</p>
+          <p class="section-lead">A practical map of the languages, application technologies, and production infrastructure used across my work — without arbitrary proficiency scores.</p>
         </div>
 
-        <div class="skills-layout">
-          <div class="chart-card">
-            <h3>Core competency radar</h3>
-            <canvas id="radarChart" height="280"></canvas>
-          </div>
-          <div class="chart-card">
-            <h3>Proficiency bands</h3>
-            <div class="bar-group" id="skillBars"></div>
-          </div>
+        <div class="technology-groups">
+          <article class="technology-group">
+            <div class="technology-heading">
+              <span class="technology-symbol">&lt;/&gt;</span>
+              <div><span class="tag-label">01 / LANGUAGES</span><h3>Languages</h3><p>Tools used to build application logic, automation, and systems-level software.</p></div>
+            </div>
+            <div class="technology-grid">
+              <div class="technology-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C logo"><span>C</span></div>
+              <div class="technology-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++ logo"><span>C++</span></div>
+              <div class="technology-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C sharp logo"><span>C#</span></div>
+              <div class="technology-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python logo"><span>Python</span></div>
+              <div class="technology-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript logo"><span>JavaScript</span></div>
+              <div class="technology-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript logo"><span>TypeScript</span></div>
+              <div class="technology-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" alt="Bash logo"><span>Bash</span></div>
+              <div class="technology-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/powershell/powershell-original.svg" alt="PowerShell logo"><span>PowerShell</span></div>
+            </div>
+          </article>
+          <article class="technology-group">
+            <div class="technology-heading">
+              <span class="technology-symbol">⌘</span>
+              <div><span class="tag-label">02 / APPLICATION SYSTEMS</span><h3>Backend &amp; real-time</h3><p>APIs, service architecture, data stores, and live communication.</p></div>
+            </div>
+            <div class="technology-grid">
+              <div class="technology-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js logo"><span>Node.js</span></div>
+              <div class="technology-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" alt="Express logo"><span>Express</span></div>
+              <div class="technology-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastify/fastify-original.svg" alt="Fastify logo"><span>Fastify</span></div>
+              <div class="technology-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dotnetcore/dotnetcore-original.svg" alt=".NET logo"><span>.NET APIs</span></div>
+              <div class="technology-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" alt="FastAPI logo"><span>FastAPI</span></div>
+              <div class="technology-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" alt="Flask logo"><span>Flask</span></div>
+              <div class="technology-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL logo"><span>PostgreSQL</span></div>
+              <div class="technology-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg" alt="Redis logo"><span>Redis</span></div>
+              <div class="technology-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB logo"><span>MongoDB</span></div>
+              <div class="technology-item"><span class="tech-monogram">WS</span><span>WebSockets</span></div>
+              <div class="technology-item"><span class="tech-monogram">SSE</span><span>Server-Sent Events</span></div>
+              <div class="technology-item"><span class="tech-monogram">API</span><span>REST APIs</span></div>
+            </div>
+          </article>
+          <article class="technology-group">
+            <div class="technology-heading">
+              <span class="technology-symbol">⌁</span>
+              <div><span class="tag-label">03 / PRODUCTION ENVIRONMENT</span><h3>Infrastructure &amp; data</h3><p>Operating environments, deployment, networking, edge delivery, and operational security.</p></div>
+            </div>
+            <div class="technology-grid">
+              <div class="technology-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux logo"><span>Linux</span></div>
+              <div class="technology-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows8/windows8-original.svg" alt="Windows logo"><span>Windows Server</span></div>
+              <div class="technology-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker logo"><span>Docker</span></div>
+              <div class="technology-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nginx/nginx-original.svg" alt="Nginx logo"><span>Nginx</span></div>
+              <div class="technology-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cloudflare/cloudflare-original.svg" alt="Cloudflare logo"><span>Cloudflare</span></div>
+              <div class="technology-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git logo"><span>Git</span></div>
+              <div class="technology-item"><span class="tech-monogram">WG</span><span>WireGuard</span></div>
+              <div class="technology-item"><span class="tech-monogram">ARM</span><span>ARM64 / x86-64</span></div>
+              <div class="technology-item"><span class="tech-monogram">SEC</span><span>Hardening &amp; security</span></div>
+              <div class="technology-item"><span class="tech-monogram">OBS</span><span>Monitoring &amp; logs</span></div>
+            </div>
+          </article>
         </div>
+      </div>
 
-        <div class="skills-second">
-          <div class="chart-card">
-            <h3>Stack distribution</h3>
-            <div class="chart-h"><canvas id="stackChart"></canvas></div>
+      <!-- INTERACTIVE SKILL MAP + SYSTEM DIAGRAMS -->
+      <div class="skills-visual-stack">
+        <section class="visual-panel capability-panel" aria-labelledby="capability-title">
+          <div class="visual-panel-heading">
+            <div>
+              <span class="visual-kicker">INTERACTIVE SKILL GRAPH</span>
+              <h3 id="capability-title">The capability network.</h3>
+              <p>Explore how the three technology domains connect to production engineering. Select a node to inspect its toolkit.</p>
+            </div>
+            <div class="visual-status"><span class="status-pulse"></span><span>30 mapped technologies</span></div>
           </div>
-          <div class="chart-card constellation-card">
-            <h3>Capability constellation</h3>
-            <canvas id="constellation" width="400" height="280"></canvas>
+          <div class="capability-control-row">
+            <div class="capability-controls" role="group" aria-label="Choose a technology domain">
+            <button type="button" class="capability-filter active" data-capability="all" aria-pressed="true">All domains</button>
+            <button type="button" class="capability-filter" data-capability="languages" aria-pressed="false">Languages</button>
+            <button type="button" class="capability-filter" data-capability="backend" aria-pressed="false">Backend &amp; real-time</button>
+              <button type="button" class="capability-filter" data-capability="infrastructure" aria-pressed="false">Infrastructure &amp; data</button>
+            </div>
+            <button type="button" class="capability-motion-toggle" id="capabilityMotionToggle" aria-pressed="false">Pause motion</button>
           </div>
-        </div>
+          <div class="capability-layout">
+            <div class="capability-canvas-wrap">
+              <canvas id="skillsCanvas" role="img" aria-label="Interactive network graph connecting Languages, Backend and real-time, and Infrastructure and data to Production Systems. Use the domain buttons to explore each group."></canvas>
+              <div class="canvas-footnote"><span class="legend-dot"></span> domain node <span class="legend-line"></span> system connection <span class="legend-particle"></span> active signal</div>
+            </div>
+            <aside class="capability-detail" aria-live="polite" aria-atomic="true">
+              <div class="detail-topline"><span class="detail-index" id="capabilityDetailIndex">SYSTEM / 00</span><span class="detail-live">EXPLORER</span></div>
+              <h4 id="capabilityDetailTitle">Production engineering</h4>
+              <p id="capabilityDetailText">The work sits across code, services, infrastructure, and operations. Choose a domain to see the technologies used within it.</p>
+              <div class="detail-count"><strong id="capabilityDetailCount">3 domains</strong><span>connected disciplines</span></div>
+              <div class="detail-chips" id="capabilityDetailItems">
+                <span>Languages</span><span>Backend &amp; real-time</span><span>Infrastructure &amp; data</span>
+              </div>
+              <div class="detail-hint"><span class="hint-key">TIP</span> Click a domain node or use the controls above.</div>
+            </aside>
+          </div>
+        </section>
 
-        <div class="skills-tags">
-          <div class="tag-group">
-            <span class="tag-label">Languages</span>
-            <div class="tags"><span>C</span><span>C++</span><span>C#</span><span>Python</span><span>JavaScript</span><span>TypeScript</span><span>Bash</span><span>Zsh</span><span>PowerShell</span></div>
-          </div>
-          <div class="tag-group">
-            <span class="tag-label">Backend &amp; real-time</span>
-            <div class="tags"><span>Node.js</span><span>Express</span><span>Fastify</span><span>.NET Web APIs</span><span>FastAPI</span><span>Flask</span><span>REST</span><span>WebSockets</span><span>SSE</span></div>
-          </div>
-          <div class="tag-group">
-            <span class="tag-label">Client &amp; extensions</span>
-            <div class="tags"><span>React</span><span>Next.js</span><span>Tailwind</span><span>Chrome MV3</span><span>Firefox APIs</span><span>Background workers</span></div>
-          </div>
-          <div class="tag-group">
-            <span class="tag-label">Infrastructure &amp; data</span>
-            <div class="tags"><span>Linux</span><span>Windows Server</span><span>Docker</span><span>Nginx</span><span>WireGuard</span><span>Cloudflare</span><span>PostgreSQL</span><span>Redis</span><span>MongoDB</span></div>
-          </div>
+        <div class="skill-visual-grid">
+          <section class="visual-panel coverage-panel" aria-labelledby="coverage-title">
+            <div class="visual-panel-heading compact-heading">
+              <div><span class="visual-kicker">STACK COMPOSITION</span><h3 id="coverage-title">Technology coverage.</h3></div>
+              <span class="coverage-total">30 <small>items</small></span>
+            </div>
+            <div class="coverage-chart" role="img" aria-label="Technology counts: 8 languages, 12 backend and real-time technologies, and 10 infrastructure and data technologies.">
+              <div class="coverage-row">
+                <div class="coverage-label"><span><i class="coverage-mark mark-languages"></i>Languages</span><strong>08 <small>/ 30</small></strong></div>
+                <div class="coverage-track"><span class="coverage-fill fill-languages" style="--coverage:26.67%"></span></div>
+              </div>
+              <div class="coverage-row">
+                <div class="coverage-label"><span><i class="coverage-mark mark-backend"></i>Backend &amp; real-time</span><strong>12 <small>/ 30</small></strong></div>
+                <div class="coverage-track"><span class="coverage-fill fill-backend" style="--coverage:40%"></span></div>
+              </div>
+              <div class="coverage-row">
+                <div class="coverage-label"><span><i class="coverage-mark mark-infra"></i>Infrastructure &amp; data</span><strong>10 <small>/ 30</small></strong></div>
+                <div class="coverage-track"><span class="coverage-fill fill-infra" style="--coverage:33.33%"></span></div>
+              </div>
+            </div>
+            <p class="chart-disclaimer">Counts represent technologies listed in this portfolio, not proficiency ratings or time allocation.</p>
+          </section>
+
+          <section class="visual-panel architecture-panel" aria-labelledby="architecture-title">
+            <div class="visual-panel-heading compact-heading">
+              <div><span class="visual-kicker">SYSTEMS THINKING</span><h3 id="architecture-title">A connected stack.</h3></div>
+              <span class="diagram-tag">REFERENCE FLOW</span>
+            </div>
+            <p class="architecture-intro">A representative view of how application and infrastructure layers can work together.</p>
+            <div class="architecture-flow" role="img" aria-label="Representative system flow: client surfaces connect through edge and network services to application and real-time services, then data stores, with operations and security across the system.">
+              <div class="architecture-node">
+                <span class="architecture-icon icon-client">01</span>
+                <strong>Client surfaces</strong>
+                <small>Web · Extensions · Admin</small>
+              </div>
+              <div class="architecture-connector"><span></span></div>
+              <div class="architecture-node">
+                <span class="architecture-icon icon-edge">02</span>
+                <strong>Edge &amp; network</strong>
+                <small>Cloudflare · Nginx · VPN</small>
+              </div>
+              <div class="architecture-connector"><span></span></div>
+              <div class="architecture-node featured-node">
+                <span class="architecture-icon icon-app">03</span>
+                <strong>Application layer</strong>
+                <small>Node · .NET · Python · APIs</small>
+              </div>
+              <div class="architecture-connector"><span></span></div>
+              <div class="architecture-node">
+                <span class="architecture-icon icon-data">04</span>
+                <strong>Data plane</strong>
+                <small>PostgreSQL · Redis · MongoDB</small>
+              </div>
+              <div class="architecture-connector"><span></span></div>
+              <div class="architecture-node">
+                <span class="architecture-icon icon-ops">05</span>
+                <strong>Operations</strong>
+                <small>Linux · Docker · Security</small>
+              </div>
+            </div>
+            <div class="architecture-baseline"><span></span>Observability · reliability · hardening run across every layer</div>
+            <p class="chart-disclaimer">Illustrative architecture diagram; not every technology is used in every project.</p>
+          </section>
         </div>
       </div>
     </section>
@@ -335,7 +506,7 @@
           <h2 class="section-title">What runs in production.</h2>
         </div>
 
-        <article class="flagship" id="akstreamers">
+        <article class="flagship" id="akstreamers" data-category="platform">
           <div class="flagship-glow"></div>
           <div class="flagship-header">
             <div class="flagship-brand">
@@ -355,31 +526,26 @@
           </p>
           <div class="flagship-stats">
             <div class="fstat">
-              <span class="fstat-value" data-count="300">0</span><span class="fstat-suffix">K+</span>
-              <span class="fstat-label">Unique users · past year</span>
+              <span class="fstat-value">99M+</span>
+              <span class="fstat-label">Monthly Cloudflare edge requests</span>
             </div>
             <div class="fstat">
-              <span class="fstat-value" data-count="90">0</span><span class="fstat-suffix">.1M</span>
-              <span class="fstat-label">Avg monthly Cloudflare requests</span>
+              <span class="fstat-value">~8.9K</span>
+              <span class="fstat-label">Monthly unique visitors</span>
             </div>
             <div class="fstat">
-              <span class="fstat-value" data-count="90">0</span><span class="fstat-suffix">K+</span>
-              <span class="fstat-label">Average customers</span>
+              <span class="fstat-value">99.9%</span>
+              <span class="fstat-label">Reported uptime</span>
             </div>
-            <div class="fstat">
-              <span class="fstat-value">99.9</span><span class="fstat-suffix">%</span>
-              <span class="fstat-label">Uptime focus</span>
-            </div>
+
           </div>
           <div class="flagship-charts">
-            <div class="flag-chart">
-              <span class="chart-label">Illustrative monthly request volume (M)</span>
-              <div class="chart-h"><canvas id="trafficChart"></canvas></div>
+            <div class="flag-chart proof-panel">
+              <span class="chart-label">Operational footprint</span>
+              <div class="proof-number">99M<span>+</span></div>
+              <p>Cloudflare edge requests handled in a typical month, alongside an approximately 8.9K monthly unique-visitor audience.</p>
             </div>
-            <div class="flag-chart">
-              <span class="chart-label">Platform capability mix</span>
-              <div class="chart-h"><canvas id="mixChart"></canvas></div>
-            </div>
+
           </div>
           <div class="flagship-steps">
             <div class="fstep"><strong>01</strong><span>Discord verification unlocks operational controls</span></div>
@@ -389,25 +555,118 @@
           </div>
         </article>
 
+        <div class="project-toolbar">
+          <div><span class="tag-label">SELECTED WORK</span><p>Filter by the kind of system being built.</p></div>
+          <div class="project-filters" role="group" aria-label="Filter projects">
+            <button class="filter-btn active" type="button" data-filter="all" aria-pressed="true">All work</button>
+            <button class="filter-btn" type="button" data-filter="platform" aria-pressed="false">Platforms</button>
+            <button class="filter-btn" type="button" data-filter="client" aria-pressed="false">Client work</button>
+            <button class="filter-btn" type="button" data-filter="security" aria-pressed="false">Security tooling</button>
+          </div>
+        </div>
         <div class="projects-grid">
-          <article class="project-card glass-card">
+          <article class="project-card glass-card" data-category="client">
             <div class="project-top"><span class="project-kind">Client · Full-stack</span><span class="project-year">OptiRaffine</span></div>
             <h3>OptiRaffine.ma</h3>
-            <p>Business website and digital storefront for a Moroccan optometry practice. Appointment scheduling, product catalog, localized customer experience, conversion workflows, deployment, and application security.</p>
+            <p><strong>Problem:</strong> give a local optometry practice a clear digital storefront. <strong>Approach:</strong> combine a business website, appointment scheduling, product catalog, localized customer journeys, deployment, and application security in one maintainable experience.</p>
             <div class="project-tags"><span>Scheduling</span><span>Catalog</span><span>Localization</span><span>Security</span></div>
           </article>
-          <article class="project-card glass-card">
+          <article class="project-card glass-card" data-category="platform">
             <div class="project-top"><span class="project-kind">Creator · Marketplace</span><span class="project-year">RbxStore</span></div>
             <h3>RbxStore.net</h3>
-            <p>Digital goods marketplace with automated transaction workflows, inventory tracking, session management, and user operations backend.</p>
+            <p><strong>Focus:</strong> a digital-goods marketplace supported by automated transaction workflows, inventory tracking, session management, and backend operations for users and orders.</p>
             <div class="project-tags"><span>Marketplace</span><span>Automation</span><span>Sessions</span></div>
           </article>
-          <article class="project-card glass-card">
-            <div class="project-top"><span class="project-kind">Systems · Retired</span><span class="project-year">MovieBypass</span></div>
-            <h3>MovieBypass.net</h3>
-            <p>Media proxying and dynamic stream-processing infrastructure for high-volume video traffic. Bandwidth optimization and performance investigation under concurrent media workloads.</p>
-            <div class="project-tags"><span>Streaming</span><span>Proxying</span><span>Performance</span></div>
+
+          <article class="project-card glass-card" data-category="security">
+            <div class="project-top"><span class="project-kind">Security tooling · In development</span><span class="project-year">Private build</span></div>
+            <h3>TriageKit</h3>
+            <p>Integrated security-scanning toolkit combining static analysis, heuristic and repository scanning, dependency checks, web scanning, and Python/JavaScript taint analysis. Built around diagnostic depth and correlated findings.</p>
+            <div class="project-tags"><span>SAST</span><span>Python AST</span><span>JavaScript</span><span>Dependency analysis</span><span>Security diagnostics</span></div>
+            <div class="project-proof-note">Private development project · no public repository link</div>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SYSTEMS ARCHITECTURE LAB -->
+    <section id="systems" class="section section-lab">
+      <div class="section-inner">
+        <div class="section-header">
+          <span class="section-eyebrow">05 — Architecture lab</span>
+          <h2 class="section-title">Open the system. Trace the signal.</h2>
+          <p class="section-lead">Move beyond a technology list. Explore how real platform, security, and infrastructure work is decomposed into connected layers.</p>
+        </div>
+
+        <div class="lab-console visual-panel">
+          <div class="lab-console-head">
+            <div class="lab-console-title"><span class="lab-terminal-mark">SK<span>_</span></span><div><span class="visual-kicker">SYSTEM EXPLORER / INTERACTIVE MODEL</span><h3>Architecture console</h3></div></div>
+            <div class="lab-console-status"><span class="status-pulse"></span> MODEL READY <i>·</i> 3 TOPOLOGIES</div>
+          </div>
+          <div class="lab-modebar" role="group" aria-label="Choose an architecture to inspect">
+            <button class="lab-mode active" type="button" data-system-mode="ak" aria-pressed="true"><span>01</span> AK Streamers <small>Live platform</small></button>
+            <button class="lab-mode" type="button" data-system-mode="triage" aria-pressed="false"><span>02</span> TriageKit <small>Security pipeline</small></button>
+            <button class="lab-mode" type="button" data-system-mode="infra" aria-pressed="false"><span>03</span> Infrastructure <small>Runtime topology</small></button>
+          </div>
+
+          <div class="lab-content-grid">
+            <div class="lab-stage-wrap">
+              <div class="lab-stage-meta"><span id="labStageName">AK STREAMERS / PLATFORM TOPOLOGY</span><span id="labStageType">PRODUCTION SYSTEM</span></div>
+              <div class="lab-stage" id="labStage">
+                <div class="lab-flow active" data-lab-flow="ak" role="group" aria-label="AK Streamers platform architecture">
+                  <button class="lab-node active" type="button" data-lab-node="ak-client" data-lab-index="LAYER / 01" data-lab-title="Client surfaces" data-lab-copy="The public platform and controlled Chrome Manifest V3 extension form the user-facing surface. They coordinate creator workflows without exposing sensitive operational controls." data-lab-tags="Web platform|Chrome MV3|Creator workflows" aria-pressed="true"><span class="lab-node-index">01</span><span class="lab-node-glyph">⌘</span><strong>Client surfaces</strong><small>Web · Chrome MV3</small><i>Inspect layer ↗</i></button>
+                  <span class="lab-wire"><i></i></span>
+                  <button class="lab-node" type="button" data-lab-node="ak-identity" data-lab-index="LAYER / 02" data-lab-title="Identity &amp; edge" data-lab-copy="Discord verification and linked Kick identity gate access to operational controls. Edge delivery, rate limits, firewall protections, and traffic analysis help protect the live service." data-lab-tags="Discord verification|Kick identity|Cloudflare|Rate limits" aria-pressed="false"><span class="lab-node-index">02</span><span class="lab-node-glyph">◇</span><strong>Identity &amp; edge</strong><small>Verification · protection</small><i>Inspect layer ↗</i></button>
+                  <span class="lab-wire"><i></i></span>
+                  <button class="lab-node" type="button" data-lab-node="ak-services" data-lab-index="LAYER / 03" data-lab-title="API &amp; real-time services" data-lab-copy="Backend APIs, WebSocket services, background workers, and cross-origin communication keep live application state coordinated across the platform and extension." data-lab-tags="Backend APIs|WebSockets|Background workers|Synchronized state" aria-pressed="false"><span class="lab-node-index">03</span><span class="lab-node-glyph">↔</span><strong>API &amp; real-time</strong><small>Services · events · workers</small><i>Inspect layer ↗</i></button>
+                  <span class="lab-wire"><i></i></span>
+                  <button class="lab-node" type="button" data-lab-node="ak-control" data-lab-index="LAYER / 04" data-lab-title="Session orchestration" data-lab-copy="Queues, managed tabs, chat tasks, and synchronized sessions coordinate user activity. Rate limits, quiet hours, pauses, and emergency stops provide operational guardrails." data-lab-tags="Queues|Managed tabs|Quiet hours|Emergency stops" aria-pressed="false"><span class="lab-node-index">04</span><span class="lab-node-glyph">▤</span><strong>Session control</strong><small>Queues · safety guardrails</small><i>Inspect layer ↗</i></button>
+                  <span class="lab-wire"><i></i></span>
+                  <button class="lab-node" type="button" data-lab-node="ak-data" data-lab-index="LAYER / 05" data-lab-title="Data &amp; operations" data-lab-copy="PostgreSQL, reverse proxies, multi-service operations, logs, and production diagnostics support the platform's day-to-day operation and reliability work." data-lab-tags="PostgreSQL|Reverse proxies|Logs &amp; diagnostics|Production operations" aria-pressed="false"><span class="lab-node-index">05</span><span class="lab-node-glyph">▦</span><strong>Data &amp; operations</strong><small>PostgreSQL · diagnostics</small><i>Inspect layer ↗</i></button>
+                </div>
+
+                <div class="lab-flow" data-lab-flow="triage" role="group" aria-label="TriageKit security scanning pipeline" hidden>
+                  <button class="lab-node active" type="button" data-lab-node="tk-input" data-lab-index="PIPELINE / 01" data-lab-title="Target inputs" data-lab-copy="Repository and web targets enter the workflow. The scanner supports repository analysis alongside web and dependency-focused inspection paths." data-lab-tags="Repositories|Web targets|Dependencies" aria-pressed="true"><span class="lab-node-index">01</span><span class="lab-node-glyph">⌕</span><strong>Target inputs</strong><small>Repository · web · deps</small><i>Inspect layer ↗</i></button>
+                  <span class="lab-wire"><i></i></span>
+                  <button class="lab-node" type="button" data-lab-node="tk-orchestrator" data-lab-index="PIPELINE / 02" data-lab-title="Scanner orchestration" data-lab-copy="A central orchestration layer coordinates the scanner modules and shared finding flow, keeping the CLI, web scan, and serving workflows connected." data-lab-tags="Orchestrator|Scanner registry|CLI|Web scan" aria-pressed="false"><span class="lab-node-index">02</span><span class="lab-node-glyph">⌘</span><strong>Orchestration</strong><small>Registry · scan engine</small><i>Inspect layer ↗</i></button>
+                  <span class="lab-wire"><i></i></span>
+                  <button class="lab-node" type="button" data-lab-node="tk-analysis" data-lab-index="PIPELINE / 03" data-lab-title="Analysis modules" data-lab-copy="Static, heuristic, repository, web, dependency, and taint-analysis modules inspect different classes of risk. Python AST analysis and JavaScript tracing contribute to the taint layer." data-lab-tags="Static analysis|Heuristics|Dependencies|Python AST|JavaScript taint|Web scanning" aria-pressed="false"><span class="lab-node-index">03</span><span class="lab-node-glyph">⌬</span><strong>Analysis modules</strong><small>SAST · taint · dependency</small><i>Inspect layer ↗</i></button>
+                  <span class="lab-wire"><i></i></span>
+                  <button class="lab-node" type="button" data-lab-node="tk-correlation" data-lab-index="PIPELINE / 04" data-lab-title="Finding correlation" data-lab-copy="Correlation brings signals from different scanners together to support clearer, more diagnostic findings rather than treating every detector as an isolated result." data-lab-tags="Cross-signal analysis|Correlation|Diagnostic depth" aria-pressed="false"><span class="lab-node-index">04</span><span class="lab-node-glyph">⌁</span><strong>Correlation</strong><small>Cross-signal reasoning</small><i>Inspect layer ↗</i></button>
+                  <span class="lab-wire"><i></i></span>
+                  <button class="lab-node" type="button" data-lab-node="tk-output" data-lab-index="PIPELINE / 05" data-lab-title="Diagnostic output" data-lab-copy="The goal is actionable security diagnostics with evidence and context. TriageKit is an active private development project; this diagram describes its intended integrated workflow, not a public hosted service." data-lab-tags="Evidence-led findings|Private development|In progress" aria-pressed="false"><span class="lab-node-index">05</span><span class="lab-node-glyph">▣</span><strong>Findings</strong><small>Evidence · diagnostics</small><i>Inspect layer ↗</i></button>
+                </div>
+
+                <div class="lab-flow" data-lab-flow="infra" role="group" aria-label="Infrastructure and operations topology" hidden>
+                  <button class="lab-node active" type="button" data-lab-node="in-compute" data-lab-index="PLANE / 01" data-lab-title="Compute environments" data-lab-copy="Production work spans Linux and Windows environments, with deployments and diagnostics across ARM64 and x86-64 architectures." data-lab-tags="Linux|Windows|ARM64|x86-64" aria-pressed="true"><span class="lab-node-index">01</span><span class="lab-node-glyph">▤</span><strong>Compute</strong><small>Linux · Windows · multi-arch</small><i>Inspect layer ↗</i></button>
+                  <span class="lab-wire"><i></i></span>
+                  <button class="lab-node" type="button" data-lab-node="in-runtime" data-lab-index="PLANE / 02" data-lab-title="Runtime &amp; services" data-lab-copy="Containerized services and reverse proxies provide a repeatable runtime surface for applications and supporting services." data-lab-tags="Docker|Nginx|Service deployment" aria-pressed="false"><span class="lab-node-index">02</span><span class="lab-node-glyph">▧</span><strong>Runtime</strong><small>Containers · reverse proxy</small><i>Inspect layer ↗</i></button>
+                  <span class="lab-wire"><i></i></span>
+                  <button class="lab-node" type="button" data-lab-node="in-network" data-lab-index="PLANE / 03" data-lab-title="Network boundaries" data-lab-copy="Inter-server networking, WireGuard VPN connectivity, firewall policy, and traffic inspection connect services while controlling their exposure." data-lab-tags="WireGuard|Firewalls|Traffic analysis|Network diagnostics" aria-pressed="false"><span class="lab-node-index">03</span><span class="lab-node-glyph">⌘</span><strong>Network</strong><small>VPN · firewall · routing</small><i>Inspect layer ↗</i></button>
+                  <span class="lab-wire"><i></i></span>
+                  <button class="lab-node" type="button" data-lab-node="in-data" data-lab-index="PLANE / 04" data-lab-title="Data &amp; telemetry" data-lab-copy="Databases, service logs, and system signals provide the evidence used in production troubleshooting, performance analysis, and operational decisions." data-lab-tags="PostgreSQL|Logs|System signals|Performance analysis" aria-pressed="false"><span class="lab-node-index">04</span><span class="lab-node-glyph">▦</span><strong>Data &amp; signals</strong><small>Databases · logs · metrics</small><i>Inspect layer ↗</i></button>
+                  <span class="lab-wire"><i></i></span>
+                  <button class="lab-node" type="button" data-lab-node="in-ops" data-lab-index="PLANE / 05" data-lab-title="Operations &amp; hardening" data-lab-copy="The operating layer brings together secure configuration, system hardening, incident investigation, performance work, and service reliability." data-lab-tags="Hardening|Troubleshooting|Reliability|Performance" aria-pressed="false"><span class="lab-node-index">05</span><span class="lab-node-glyph">⬡</span><strong>Operations</strong><small>Hardening · reliability</small><i>Inspect layer ↗</i></button>
+                </div>
+              </div>
+              <div class="lab-stage-foot"><span><i></i> SELECT A NODE TO INSPECT</span><span>FLOW IS REPRESENTATIVE · NOT A DEPLOYMENT DIAGRAM</span></div>
+            </div>
+
+            <aside class="lab-inspector" aria-live="polite" aria-atomic="true">
+              <div class="inspector-top"><span class="visual-kicker">LAYER INSPECTOR</span><span class="inspector-index" id="labInspectorIndex">LAYER / 01</span></div>
+              <div class="inspector-orbit"><span class="inspector-orbit-ring ring-a"></span><span class="inspector-orbit-ring ring-b"></span><span class="inspector-orbit-core">AA</span><span class="inspector-orbit-dot dot-a"></span><span class="inspector-orbit-dot dot-b"></span><span class="inspector-orbit-dot dot-c"></span></div>
+              <div class="inspector-copy"><span class="inspector-eyebrow" id="labInspectorMode">AK STREAMERS / PLATFORM</span><h3 id="labInspectorTitle">Client surfaces</h3><p id="labInspectorCopy">The public platform and controlled Chrome Manifest V3 extension form the user-facing surface. They coordinate creator workflows without exposing sensitive operational controls.</p></div>
+              <div class="inspector-tags" id="labInspectorTags"><span>Web platform</span><span>Chrome MV3</span><span>Creator workflows</span></div>
+              <div class="inspector-footer"><span class="inspector-pulse"></span><span>INSPECTION READY</span><span class="inspector-footer-code">SK / 0<span id="labInspectorNumber">1</span></span></div>
+            </aside>
+          </div>
+        </div>
+
+        <div class="principles-rail" aria-label="Engineering principles">
+          <div class="principle-item"><span>01</span><strong>Trace the whole path</strong><small>Code to runtime to network</small></div>
+          <div class="principle-item"><span>02</span><strong>Make failure legible</strong><small>Logs, evidence, diagnosis</small></div>
+          <div class="principle-item"><span>03</span><strong>Secure in context</strong><small>Boundaries, controls, hardening</small></div>
+          <div class="principle-item"><span>04</span><strong>Own the outcome</strong><small>Build, ship, operate, improve</small></div>
         </div>
       </div>
     </section>
@@ -417,17 +676,21 @@
       <div class="section-inner">
         <div class="contact-card">
           <div class="contact-glow"></div>
-          <span class="section-eyebrow">05 — Contact</span>
+          <span class="section-eyebrow">06 — Contact</span>
           <h2 class="section-title">Build with someone who ships and stays on-call.</h2>
           <p class="contact-lead">Open to international remote roles and selective freelance contracts. Based in Morocco.</p>
           <div class="contact-actions">
-            <a href="mailto:dexter.ali001@gmail.com" class="btn btn-gold magnetic">dexter.ali001@gmail.com</a>
+            <a href="mailto:dexter.ali001@gmail.com?subject=Portfolio%20inquiry" class="btn btn-gold magnetic" aria-label="Email Ali Alaoui at dexter.ali001@gmail.com">Send me an email</a>
             <a href="https://github.com/alidexter001" target="_blank" rel="noreferrer" class="btn btn-ghost magnetic site-link" data-domain="github.com">
               <img class="site-logo" alt="" /> GitHub
             </a>
             <a href="https://akstreamers.net" target="_blank" rel="noreferrer" class="btn btn-ghost magnetic site-link" data-domain="akstreamers.net">
               <img class="site-logo" alt="" /> AK Streamers
             </a>
+          </div>
+          <div class="contact-email-line">
+            <span class="contact-email-label">DIRECT EMAIL</span>
+            <a href="mailto:dexter.ali001@gmail.com">dexter.ali001@gmail.com</a>
           </div>
         </div>
       </div>
@@ -440,6 +703,26 @@
       <span class="footer-note">Precision in production</span>
     </div>
   </footer>
+
+  <div class="command-overlay" id="commandOverlay" aria-hidden="true">
+    <div class="command-panel" role="dialog" aria-modal="true" aria-labelledby="commandTitle">
+      <div class="command-head"><span id="commandTitle">SMART KEY / COMMAND DECK</span><button type="button" id="commandClose" aria-label="Close command palette">×</button></div>
+      <label class="command-search-wrap"><span>⌕</span><input id="commandSearch" type="search" aria-label="Search commands" placeholder="Jump to a section or action..." autocomplete="off" /></label>
+      <p class="command-hint">Navigate the portfolio. Press <kbd>ESC</kbd> to close.</p>
+      <div class="command-list" id="commandList">
+        <button class="command-option" type="button" data-target="#top"><span>01</span> Home <kbd>↵</kbd></button>
+        <button class="command-option" type="button" data-target="#about"><span>02</span> About</button>
+        <button class="command-option" type="button" data-target="#skills"><span>03</span> Capabilities</button>
+        <button class="command-option" type="button" data-target="#experience"><span>04</span> Experience</button>
+        <button class="command-option" type="button" data-target="#projects"><span>05</span> Selected work</button>
+        <button class="command-option" type="button" data-target="#systems"><span>06</span> Architecture lab</button>
+        <button class="command-option" type="button" data-target="#contact"><span>07</span> Contact</button>
+        <button class="command-option" type="button" data-action="theme"><span>08</span> Toggle appearance</button>
+        <a class="command-option" href="https://github.com/alidexter001" target="_blank" rel="noreferrer"><span>↗</span> GitHub profile</a>
+      </div>
+      <div class="command-empty" id="commandEmpty" hidden>No matching commands.</div>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>

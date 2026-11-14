@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://alidexter001.github.io/smartkey-portfolio/sitemap.xml
