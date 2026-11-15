@@ -382,6 +382,7 @@
   function initLogos() {
     const map = {
       "github.com": "https://github.githubassets.com/favicons/favicon.svg",
+      "linkedin.com": "https://www.google.com/s2/favicons?domain=linkedin.com&sz=64",
       "akstreamers.net": "https://www.google.com/s2/favicons?domain=akstreamers.net&sz=64"
     };
     document.querySelectorAll(".site-logo").forEach((img) => {
