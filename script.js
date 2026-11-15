@@ -678,22 +678,22 @@
 
     const groups = {
       languages: {
-        label: "Languages", index: "DOMAIN / 01", count: "8 technologies",
+        label: "Languages", index: "DOMAIN / 01", count: "16 technologies",
         description: "The programming and scripting layer used to shape application logic, automation, and systems-level work.",
-        items: ["C", "C++", "C#", "Python", "JavaScript", "TypeScript", "Bash", "PowerShell"],
-        color: "#d7b65d", satellites: ["C / C++", "Python", "JS / TS", "Shell"]
+        items: ["C", "C++", "C#", "Java", "Python", "Rust", "Go", "Ruby", "Elixir", "JavaScript", "TypeScript", "Luvit / Lua", "Bash", "Zsh", "PowerShell", "Windows CMD"],
+        color: "#d7b65d", satellites: ["Systems", "Python / JS", "Rust / Go", "Shell"]
       },
       backend: {
-        label: "Backend & real-time", index: "DOMAIN / 02", count: "12 technologies",
-        description: "Service architecture, API development, data stores, and the communication patterns behind live applications.",
-        items: ["Node.js", "Express", "Fastify", ".NET APIs", "FastAPI", "Flask", "PostgreSQL", "Redis", "MongoDB", "WebSockets", "Server-Sent Events", "REST APIs"],
-        color: "#64d6c3", satellites: ["Node / .NET", "FastAPI / Flask", "SQL / NoSQL", "WebSockets"]
+        label: "Backend & real-time", index: "DOMAIN / 02", count: "17 technologies",
+        description: "Service architecture, API development, data stores, language runtimes, and the communication patterns behind live applications.",
+        items: ["Node.js", "Express", "Fastify", ".NET APIs", "FastAPI", "Flask", "Ruby on Rails", "Phoenix", "Actix / Axum", "Gin / Fiber", "PostgreSQL", "Redis", "MongoDB", "WebSockets", "Server-Sent Events", "REST APIs", "gRPC"],
+        color: "#64d6c3", satellites: ["Node / .NET", "Rails / Phoenix", "Rust / Go", "SQL / NoSQL"]
       },
       infrastructure: {
-        label: "Infrastructure & data", index: "DOMAIN / 03", count: "10 technologies",
-        description: "The production environment: operating systems, containers, edge delivery, networking, architecture, and operational security.",
-        items: ["Linux", "Windows Server", "Docker", "Nginx", "Cloudflare", "Git", "WireGuard", "ARM64 / x86-64", "Hardening & security", "Monitoring & logs"],
-        color: "#a89af4", satellites: ["Linux / Windows", "Docker / Nginx", "Edge / VPN", "ARM64 / x86-64"]
+        label: "Infrastructure & Security", index: "DOMAIN / 03", count: "50 technologies",
+        description: "Production environments, containers, orchestration, cloud, CI/CD, observability, networking, hardening, and security tooling.",
+        items: ["Linux", "Windows Server", "Docker", "Docker Compose", "Kubernetes", "Helm", "Nginx", "Cloudflare", "AWS", "Azure", "GCP", "Terraform", "Ansible", "GitHub Actions", "Prometheus", "Grafana", "ELK", "WireGuard", "Proxmox", "VPS administration", "Load balancing", "DNS management", "systemd", "Kali Linux", "Nmap", "Wireshark", "Burp Suite", "Metasploit", "sqlmap", "Hydra", "Hashcat", "Aircrack-ng", "Gobuster", "ffuf", "Firewall config", "Rate limiting", "DDoS mitigation", "Traffic analysis", "Security auditing", "Server hardening", "fail2ban", "IDS / IPS"],
+        color: "#a89af4", satellites: ["Cloud / K8s", "CI/CD / IaC", "Observability", "Hardening"]
       }
     };
     const colorsDark = { languages: "#d7b65d", backend: "#64d6c3", infrastructure: "#a89af4" };
@@ -718,7 +718,7 @@
       if (index) index.textContent = data ? data.index : "SYSTEM / 00";
       if (count) count.textContent = data ? data.count : "3 domains";
       if (items) {
-        const labels = data ? data.items : ["Languages", "Backend & real-time", "Infrastructure & data"];
+        const labels = data ? data.items : ["Languages", "Backend & real-time", "Infrastructure & Security"];
         items.innerHTML = labels.map((label) => `<span>${label.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")}</span>`).join("");
       }
       draw();
